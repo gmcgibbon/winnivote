@@ -1,11 +1,11 @@
-li.idea id='idea-#{idea.id}' data-target="#{idea.id}"
+li.idea id='idea-#{idea.id}' data-target="#{idea.id}" 
   .row
     .col-md-2
-      .votes = idea.votes
-      .upvote == image_tag "golden_boy.png", data: {"idea-id" => idea.id}
+      .votes data-bind="text: $data.json.votes" = idea.votes
+      .upvote data-bind="click: $data.upvote" == image_tag "golden_boy.png", data: {"idea-id" => idea.id}
     .idea-content.col-md-10
-        h3.title = idea.title
-        .description.lead = idea.description
+        h3.title data-bind="text: $data.json.title" = idea.title
+        .description.lead data-bind="text: $data.json.description" = idea.description
         button.edit Edit
         
     .idea-form.col-md-10
